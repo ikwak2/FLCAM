@@ -33,7 +33,7 @@ def main(iteration=None):
     #declare test_only/debugging mode
     if train_cfg["test_only"]:   # eval
         print(" "*40 + "<"*10 + "test only" + ">"*10)
-    if train_cfg["debug"]:   # 디버깅
+    if train_cfg["debug"]:   
         train_cfg["div_dataset"] = True
         train_cfg["n_epochs"] = 1
         print("!" * 10 + "   DEBUGGING MODE   " + "!" * 10)
