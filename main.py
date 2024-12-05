@@ -95,7 +95,7 @@ def main(iteration=None):
         train_cfg["criterion_class"] = AsymmetricalFocalLoss(train_cfg["afl_loss"][0], train_cfg["afl_loss"][1])
     train_cfg["criterion_cons"] = nn.MSELoss().cuda()
     train_cfg["optimizer"] = optim.Adam(train_cfg["net"].parameters(), 1e-3, betas=(0.9, 0.999))
-    warmup_steps = train_cfg["n_epochs_warmup"] * len(train_cfg["trainloader"])    # 50 * 로더 길이
+    warmup_steps = train_cfg["n_epochs_warmup"] * len(train_cfg["trainloader"])    
     train_cfg["scheduler"] = ExponentialWarmup(train_cfg["optimizer"], configs["opt"]["lr"], warmup_steps)
     printing_epoch, printing_test = get_printings()
 
