@@ -6,10 +6,10 @@ A PDF will be available after publication.
 
 
 ## Data Preparation
-데이터 받는 방법 기술해주세요
+DCASE 2021 Task4 Description 페이지를 참고하여 데이터 셋을 다운로드 받을 수 있습니다. 다운로드 후, config.yaml 파일에서 데이터셋 경로를 지정해줘야합니다.
 
 ## File Description
-- file1: explain
+- file1: explainc
 - file2: explain
 -
 
