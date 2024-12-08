@@ -68,54 +68,42 @@ CRNN:
 #   timedim: [0, 313, 156, 156, 156, 156, 0]
 #   freqdim : [128, 64, 32, 16, 8, 4, 2]
   pooling: [ [ 2, 2 ], [ 2, 2 ], [ 1, 2 ], [ 1, 2 ], [ 1, 2 ], [ 1, 2 ], [ 1, 2]] #[ 1, 2 ]
-
-#   n_basis_kernels: 4
-#   DY_layers: [ 0, 1, 1, 1, 1, 1, 1 ]
   atte_layers: [0, 1, 1, 1, 1, 1, 1]
-#  resnest_unit: [0, 1, 1, 1, 1, 1, 0]
 #   pooling_layers : [1, 1, 1, 1, 1, 1, 1]
-#   SK_unit : [0, 1, 1, 1, 1, 1, 1]
-#  se_layers : [0, 1, 1, 1, 1, 1, 1] 
-#   ds_layers : [0, 1, 1, 1, 1, 1, 1]
   temperature: 31
   pool_dim: time                       # leave time: "freq", pool time "time", pool both: "both"
 
-wav2vec2:
-  strong_w2v2 : "/Data/dcase_2022_T4/DESED_task/data/dcase/dataset/wav2vec2_embedding/train/strong_label_real"
-  synth_train_w2v2 : "/Data2/dcase_2022_T4/DESED_task/data/dcase/dataset/wav2vec2_embedding/train/synth"
-  weak_w2v2 : "/Data/dcase_2022_T4/DESED_task/data/dcase/dataset/wav2vec2_embedding/train/weak"
-  unlabeled_w2v2 : "/Data2/dcase_2022_T4/DESED_task/data/dcase/dataset/wav2vec2_embedding/train/unlabel_in_domain"
-  synth_valid_w2v2 : "/Data2/dcase_2022_T4/DESED_task/data/dcase/dataset/wav2vec2_embedding/validation/synth"
-  test_w2v2 : "/Data/dcase_2022_T4/DESED_task/data/dcase/dataset/wav2vec2_embedding/validation/validation"
-  
+
+
+ 
 dataset:                               # change with your paths if different.
   # NOTE: if you have data in 44kHz only then synth_folder will be the path where
   # resampled data will be placed.
-  strong_folder: "/Data/dcase_2022_T4/DESED_task/data/dcase/dataset/audio/train/strong_label_real_16k/" #ADD dcase_2022_T4_S/
-  strong_folder_44k: "/Data/dcase_2022_T4/DESED_task/data/dcase/dataset/audio/train/strong_label_real/"
-  strong_tsv: "/Data/dcase_2022_T4/DESED_task/data/dcase/dataset/metadata/train/audioset_strong.tsv"
-  weak_folder: "/Data/dcase_2022_T4/DESED_task/data/dcase/dataset/audio/train/weak_16k/"
-  weak_folder_44k: "/Data/dcase_2022_T4/DESED_task/data/dcase/dataset/audio/train/weak/"
-  weak_tsv: "/Data/dcase_2022_T4/DESED_task/data/dcase/dataset/metadata/train/weak.tsv"
-  unlabeled_folder: "/Data/dcase_2022_T4/DESED_task/data/dcase/dataset/audio/train/unlabel_in_domain_16k/"
-  unlabeled_folder_44k: "/Data/dcase_2022_T4/DESED_task/data/dcase/dataset/audio/train/unlabel_in_domain/"
-  test_folder: "/Data/dcase_2022_T4/DESED_task/data/dcase/dataset/audio/validation/validation_16k/"
-  test_folder_44k: "/Data/dcase_2022_T4/DESED_task/data/dcase/dataset/audio/validation/validation/"
-  test_tsv: "/Data/dcase_2022_T4/DESED_task/data/dcase/dataset/metadata/validation/validation.tsv"
-  test_dur: "/Data/dcase_2022_T4/DESED_task/data/dcase/dataset/metadata/validation/validation_durations.tsv"
+  strong_folder: "../data/dcase/dataset/audio/train/strong_label_real_16k/" 
+  strong_folder_44k: "../data/dcase/dataset/audio/train/strong_label_real/"
+  strong_tsv: "../data/dcase/dataset/metadata/train/audioset_strong.tsv"
+  weak_folder: "../data/dcase/dataset/audio/train/weak_16k/"
+  weak_folder_44k: "../data/dcase/dataset/audio/train/weak/"
+  weak_tsv: "../data/dcase/dataset/metadata/train/weak.tsv"
+  unlabeled_folder: "../data/dcase/dataset/audio/train/unlabel_in_domain_16k/"
+  unlabeled_folder_44k: "../data/dcase/dataset/audio/train/unlabel_in_domain/"
+  test_folder: "../data/dcase/dataset/audio/validation/validation_16k/"
+  test_folder_44k: "../data/dcase/dataset/audio/validation/validation/"
+  test_tsv: "../data/dcase/dataset/metadata/validation/validation.tsv"
+  test_dur: "../data/dcase/dataset/metadata/validation/validation_durations.tsv"
 #   pubeval_folder: "../datasets/dcase2021/dataset/audio/eval/public_16k/"
 #   pubeval_folder_44k: "../datasets/dcase2021/dataset/audio/eval/public/"
 #   pubeval_tsv: "../datasets/dcase2021/dataset/metadata/eval/public.tsv"
 #   pubeval_dur: "../datasets/dcase2021/dataset/metadata/eval/public_durations.tsv"
 synth_dataset:                         # change with your paths if different.
-  synth_train_folder: "/Data/dcase_2022_T4/DESED_task/data/dcase/dataset/dcase_synth/audio/train/synthetic21_train/soundscapes_16k/"
-  synth_train_folder_44k: "/Data/dcase_2022_T4/DESED_task/data/dcase/dataset/dcase_synth/audio/train/synthetic21_train/soundscapes/"
-  synth_train_tsv: "/Data/dcase_2022_T4/DESED_task/data/dcase/dataset/dcase_synth/metadata/train/synthetic21_train/soundscapes.tsv"
-  synth_train_dur: "/Data/dcase_2022_T4/DESED_task/data/dcase/dataset/dcase_synth/metadata/validation/synthetic21_validation/durations.tsv"
-  synth_val_folder: "/Data/dcase_2022_T4/DESED_task/data/dcase/dataset/dcase_synth/audio/validation/synthetic21_validation/soundscapes_16k/"
-  synth_val_folder_44k: "/Data/dcase_2022_T4/DESED_task/data/dcase/dataset/dcase_synth/audio/validation/synthetic21_validation/soundscapes/"
-  synth_val_tsv: "/Data/dcase_2022_T4/DESED_task/data/dcase/dataset/dcase_synth/metadata/validation/synthetic21_validation/soundscapes.tsv"
-  synth_val_dur: "/Data/dcase_2022_T4/DESED_task/data/dcase/dataset/dcase_synth/metadata/validation/synthetic21_validation/durations.tsv"
+  synth_train_folder: "../data/dcase/dataset/dcase_synth/audio/train/synthetic21_train/soundscapes_16k/"
+  synth_train_folder_44k: "../data/dcase/dataset/dcase_synth/audio/train/synthetic21_train/soundscapes/"
+  synth_train_tsv: "../data/dcase/dataset/dcase_synth/metadata/train/synthetic21_train/soundscapes.tsv"
+  synth_train_dur: "../data/dcase/dataset/dcase_synth/metadata/validation/synthetic21_validation/durations.tsv"
+  synth_val_folder: "../data/dcase/dataset/dcase_synth/audio/validation/synthetic21_validation/soundscapes_16k/"
+  synth_val_folder_44k: "../data/dcase/dataset/dcase_synth/audio/validation/synthetic21_validation/soundscapes/"
+  synth_val_tsv: "../data/dcase/dataset/dcase_synth/metadata/validation/synthetic21_validation/soundscapes.tsv"
+  synth_val_dur: "../data/dcase/dataset/dcase_synth/metadata/validation/synthetic21_validation/durations.tsv"
 scaler:
   statistic: instance                  # instance or dataset-wide statistic
   normtype: minmax                     # minmax or standard or mean normalization
