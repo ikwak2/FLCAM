@@ -40,23 +40,8 @@ class ContextGating(nn.Module):
 class Flatten(nn.Module):
     def forward(self, x):
         return x.view(x.size(0), -1)
-class ChannelGate(nn.Module):
-    def __init__(self, gate_channel, reduction_ratio=16, num_layers=1):
-        super(ChannelGate, self).__init__()
-#         self.gate_activation = gate_activation
-        self.gate_c = nn.Sequential()
-        self.gate_c.add_module( 'flatten', Flatten() )
-        gate_channels = [gate_channel]
-        gate_channels += [gate_channel // reduction_ratio] * num_layers
-        gate_channels += [gate_channel]
-        for i in range( len(gate_channels) - 2 ):
-            self.gate_c.add_module( 'gate_c_fc_%d'%i, nn.Linear(gate_channels[i], gate_channels[i+1]) )
-            self.gate_c.add_module( 'gate_c_bn_%d'%(i+1), nn.BatchNorm1d(gate_channels[i+1]) )
-            self.gate_c.add_module( 'gate_c_relu_%d'%(i+1),nn.ReLU() ) 
-        self.gate_c.add_module( 'gate_c_fc_final', nn.Linear(gate_channels[-2], gate_channels[-1]) )
-    def forward(self, in_tensor):
-        avg_pool = F.avg_pool2d( in_tensor, (in_tensor.size(2), in_tensor.size(3)), stride=(in_tensor.size(2), in_tensor.size(3)) )
-        return self.gate_c( avg_pool ).unsqueeze(2).unsqueeze(3).expand_as(in_tensor)
+
+
 class FreqChanGate(nn.Module):
     def __init__(self, gate_channel):
         super(FreqChanGate, self).__init__()
@@ -65,15 +50,15 @@ class FreqChanGate(nn.Module):
             nn.BatchNorm1d(gate_channel//16),
             nn.ReLU(),
             nn.Conv1d(gate_channel//16, 1, 3, stride=1, padding=1),
-        )
-            
-            
+        )      
     def forward(self, in_tensor):
         x = in_tensor.permute(0,1,3,2)
         out_tensor = self.gate_s(torch.mean(in_tensor, dim=2))  
         out_tensor = out_tensor.unsqueeze(2)
         out_tensor = out_tensor.expand_as(in_tensor)
         return out_tensor
+    
+    
 class BAM(nn.Module):
     def __init__(self, gate_channel):
         super(BAM, self).__init__()
@@ -95,9 +80,7 @@ class CNN(nn.Module):
                  n_filt=[64, 64, 64],
                  pooling=[(1, 4), (1, 4), (1, 4)],
                  normalization="batch",
-                 n_basis_kernels=4,
-                 DY_layers=[0, 1, 1, 1, 1, 1, 1],
-                 atte_layers=[1, 1, 1, 1, 1, 1, 1],
+                 atte_layers=[0, 1, 1, 1, 1, 1, 1],
                  pooling_layers = [1, 1, 1, 1, 1, 0, 0],
                  temperature=31,
                  pool_dim='freq'):
