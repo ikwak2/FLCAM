@@ -10,7 +10,7 @@ A PDF will be available after publication.
 
 ## Data Preparation
 [DCASE 2022 Task4 Description](https://dcase.community/challenge2022/task-sound-event-detection-in-domestic-environments#download) 페이지를 참고하여 데이터 셋을 다운로드 받을 수 있습니다. 
-다운로드 후, config.yaml 파일에서 데이터셋 경로를 지정해줘야합니다.
+다운로드 후, config.yaml 파일에서 데이터셋 경로를 지정해야합니다.
 
 ## File Description
 - file1: explainc
