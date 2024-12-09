@@ -98,8 +98,6 @@ class CNN(nn.Module):
                  n_filt=[64, 64, 64],
                  pooling=[(1, 4), (1, 4), (1, 4)],
                  normalization="batch",
-                 n_basis_kernels=4,
-                 DY_layers=[0, 1, 1, 1, 1, 1, 1],
                  atte_layers=[0, 1, 1, 1, 1, 1, 1],
                  freqdim=[0, 64, 32, 16, 8, 4, 2],
                  temperature=31,
