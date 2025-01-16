@@ -21,11 +21,12 @@ A PDF will be available after publication.
     * evaluation_measures.py : 평가 지표 계산 (ex. PSDS1/PSDS2, F1 score, etc)
     * settings.py : 모델 설정, 데이터 로딩, 로깅 및 저장
     * utils.py : 유틸리티 함수(encoder, learning rate scheduler, etc)
+    * flcam 및 exp1~5는 어떻게 적을지...
 
 ## Installation
 
 ## Training
-
+`config.yaml`에서 저장 경로를 지정하고 training을 하면 `exp\` 디렉토리에 저장됩니다.
 ```
 python main.py
 ```
