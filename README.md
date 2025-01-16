@@ -24,8 +24,11 @@ A PDF will be available after publication.
 
 ## Installation
 
+## Training
 
-
+```
+python main.py
+```
 
 
 
