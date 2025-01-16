@@ -2,8 +2,7 @@
 
 This repository contains the source for a manuscript "F-LCAM : Frequency Light Convolutional Attention Module for Sound Event Detection."
 
-![F-LCAM1](https://github.com/user-attachments/assets/0f0e4516-8f51-4340-9c0b-959a3cdb5804)
-![F-LCAM2](https://github.com/user-attachments/assets/062b837f-c27c-4c77-bb69-43b26b929321)
+![SED_Overview](https://github.com/user-attachments/assets/d064d6d5-4b37-412d-ae18-5198385a3e98)
 
 A PDF will be available after publication.
 
