@@ -24,6 +24,15 @@ A PDF will be available after publication.
     * flcam 및 exp1~5는 어떻게 적을지...
 
 ## Installation
+Python version : 3.7.10
+* pytorch==1.8.0
+* pytorch-lightning==1.2.4
+* pytorchaudio==0.8.0
+* scipy==1.4.1
+* pandas==1.1.3
+* numpy==1.19.2
+
+
 
 ## Training
 `config.yaml`에서 저장 경로를 지정하고 training을 하면 `exp\` 디렉토리에 저장됩니다.
