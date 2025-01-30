@@ -1,6 +1,6 @@
 # F-LCAM : Frequency Light Convolutional Attention Module for Sound Event Detection
 
-This repository contains the source for a manuscript "F-LCAM : Frequency Light Convolutional Attention Module for Sound Event Detection."
+This repository contains the source for a manuscript "Enhancing Sound Event Detection System with Frequency-Aware Enhancements and Semi-Supervised Learning."
 
 ![SED_Overview](https://github.com/user-attachments/assets/d064d6d5-4b37-412d-ae18-5198385a3e98)
 
@@ -8,20 +8,20 @@ A PDF will be available after publication.
 
 
 ## Data Preparation
-[DCASE 2022 Task4 Description](https://dcase.community/challenge2022/task-sound-event-detection-in-domestic-environments#download) 페이지를 참고하여 데이터 셋을 다운로드 받을 수 있습니다. 
-다운로드 후, config.yaml 파일에서 데이터셋 경로를 지정해야합니다.
+You can download the dataset by referring to the [DCASE 2022 Task 4 Description](https://dcase.community/challenge2022/task-sound-event-detection-in-domestic-environments#download) page.  
+After downloading, you need to specify the dataset path in the `config.yaml` file.
 
 ## File Description
-* main.py : train/validation/test 메인 스크립트
-* configs
-    * config.yaml : 모델, 데이터셋, training 학습 설정 파일
-* utils
-    * dataset.py : Strong/Weak/Unlabeled data 데이터셋 로더
-    * data_aug.py : Data Augmentation methods
-    * evaluation_measures.py : 평가 지표 계산 (ex. PSDS1/PSDS2, F1 score, etc)
-    * settings_CRNN.py : 데이터 로딩, 로깅 및 저장
-    * utils.py : 유틸리티 함수(encoder, learning rate scheduler, etc)
-    * flcam 및 exp1~5는 어떻게 적을지...
+* `main.py` : Main script for train/validation/test  
+* `configs`  
+    * `config.yaml` : Configuration file for model, dataset, and training settings  
+* `utils`  
+    * `dataset.py` : Dataset loader for Strong, Weak, and Unlabeled data  
+    * `data_aug.py` : Data augmentation methods  
+    * `evaluation_measures.py` : Evaluation metric calculations (e.g., PSDS1/PSDS2, F1 score, etc.)  
+    * `settings_CRNN.py` : Data loading, logging, and saving  
+    * `utils.py` : Utility functions (e.g., encoder, learning rate scheduler, etc.)  
+* `flcam` and `exp1~5` : [Provide a brief description of these directories/files]  
 
 ## Installation
 Python version : 3.7.10
@@ -35,11 +35,11 @@ Python version : 3.7.10
 
 
 ## Training
-`config.yaml`에서 저장 경로를 지정하고 training을 하면 `exp\` 디렉토리에 저장됩니다.
+Specify the save path in `config.yaml`, and when training is executed, the results will be saved in the `exp\` directory.  
+
+Run the following command to start training:  
 ```
 python main.py
 ```
-
-
 
 
