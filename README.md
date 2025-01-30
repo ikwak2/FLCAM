@@ -1,4 +1,4 @@
-# F-LCAM : Frequency Light Convolutional Attention Module for Sound Event Detection
+# Enhancing Sound Event Detection System with Frequency-Aware Enhancements and Semi-Supervised Learning
 
 This repository contains the source for a manuscript "Enhancing Sound Event Detection System with Frequency-Aware Enhancements and Semi-Supervised Learning."
 
@@ -42,4 +42,11 @@ Run the following command to start training:
 python main.py
 ```
 
+---
 
+The manuscript is licensed under the
+[Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/).
+
+[![CC BY](http://i.creativecommons.org/l/by/3.0/88x31.png)](http://creativecommons.org/licenses/by/3.0/)
+
+The software is licensed under the [MIT license](License.md).
