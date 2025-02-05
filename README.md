@@ -42,7 +42,11 @@ Run the following command to start training:
 python main.py
 ```
 ## Test
-
+You can test trained model by editing `config.yaml`,  "test_only" = True
+then
+```
+python main.py
+```
 ---
 
 The manuscript is licensed under the
